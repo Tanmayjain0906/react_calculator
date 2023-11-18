@@ -20,72 +20,94 @@ const Calculator = () => {
         if (!num1 || !num2) {
             setSuccess(false);
 
-            if(!num1 && !num2)
-            {
+            if (!num1 && !num2) {
                 seterrorMessage("Both Feild Cannot Be Empty");
             }
             else if (!num1) {
                 seterrorMessage("Num1 Cannot Be Empty");
             }
-            else
-            {
+            else {
                 seterrorMessage("Num2 Cannot Be Empty");
-            } 
+            }
         }
         else {
-            if(event.target.id == "add")
-            {
+            if (event.target.id == "add") {
                 addEvent();
             }
-            else if(event.target.id == "sub")
-            {
+            else if (event.target.id == "sub") {
                 subEvent();
             }
-            else if(event.target.id == "multi")
-            {
+            else if (event.target.id == "multi") {
                 multiEvent();
             }
-            else
-            {
+            else {
                 divEvent();
             }
         }
     }
 
     function addEvent() {
- 
+
+        if (!Number(num1) || !Number(num2)) {
+            seterrorMessage("Invalid Input");
+            setSuccess(false);
+        }
+        else {
             const evalString = `${num1}+${num2}`;
             const ans = eval(evalString);
             setResult(ans);
             seterrorMessage("");
             setSuccess(true);
+        }
+
     }
 
     function subEvent() {
 
+        if (!Number(num1) || !Number(num2)) {
+            seterrorMessage("Invalid Input");
+            setSuccess(false);
+        }
+        else {
             const evalString = `${num1}-${num2}`;
             const ans = eval(evalString);
             setResult(ans);
             seterrorMessage("");
-            setSuccess(true);  
+            setSuccess(true);
+        }
+
     }
 
     function multiEvent() {
 
+        if (!Number(num1) || !Number(num2)) {
+            seterrorMessage("Invalid Input");
+            setSuccess(false);
+        }
+        else {
             const evalString = `${num1}*${num2}`;
             const ans = eval(evalString);
             setResult(ans);
             seterrorMessage("");
-            setSuccess(true);   
+            setSuccess(true);
+        }
+
     }
 
     function divEvent() {
 
+        if (!Number(num1) || !Number(num2)) {
+            seterrorMessage("Invalid Input");
+            setSuccess(false);
+        }
+        else {
             const evalString = `${num1}/${num2}`;
             const ans = eval(evalString);
             setResult(ans);
             seterrorMessage("");
-            setSuccess(true);  
+            setSuccess(true);
+        }
+
     }
 
     return (
